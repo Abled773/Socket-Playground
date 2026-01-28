@@ -1,0 +1,93 @@
+Assume successful intiation of UDP and TCP servers respectively
+
+running either
+
+python3 TCPServer.py
+or
+python3 UDPServer.py
+
+and see the server is ready to receive message in the terminal
+
+each test is in form:
+
+Command:
+Result:
+
+TCP Tests:
+
+
+python3 TCPClient.py localhost 100 km mi
+From Server: 100.000 kilometers is 62.137 miles.
+
+python3 TCPClient.py localhost 100 mi km
+From Server: 100.000 miles is 160.934 kilometers
+
+python3 TCPClient.py localhost 100 lb kg
+From Server: 100.000 pounds is 45.359 kilograms.
+
+python3 TCPClient.py localhost 100 kg lb
+From Server: 100.000 kilograms is 220.462 pounds.
+
+python3 TCPClient.py localhost 100 f c
+From Server: 100.000 farenheit 37.778 celsius.
+
+python3 TCPClient.py localhost 100 c f
+From Server: 100.000 celsius is 212.000 farenheit.
+
+python3 TCPClient.py localhost 100 km 
+Conversion command must take 5 arguments. User provided 4
+
+python3 TCPClient.py localhost asdf f c
+asdf is not a valid float!
+
+python3 TCPClient.py localhost 100 c f #host does not exist
+Connection refused
+
+python3 TCPClient.py localhost 100 f mi
+From Server: mi is not a valid unit paired with f.
+
+python3 TCPClient.py local 100 f c
+Invalid server name: local
+
+
+
+UDP Tests:
+
+python3 UDPClient.py localhost 100 km mi
+From Server: 100.000 kilometers is 62.137 miles.
+
+python3 UDPClient.py localhost 100 mi km
+From Server: 100.000 miles is 160.934 kilometers.
+
+python3 UDPClient.py localhost 100 lb kg
+From Server: 100.000 pounds is 45.359 kilograms.
+
+python3 UDPClient.py localhost 100 kg lb
+From Server: 100.000 kilograms is 220.462 pounds.
+
+python3 UDPClient.py localhost 100 f c
+From Server: 100.000 farenheit 37.778 celsius.
+
+python3 UDPClient.py localhost 100 c f
+From Server: 100.000 celsius is 212.000 farenheit.
+
+python3 UDPClient.py localhost 100 km
+Conversion command must take 5 arguments. User provided 4
+
+python3 UDPClient.py asdf 100 km mi
+Timeout, retry 1
+Timeout, retry 2
+Timeout, retry 3
+No response from server, exiting
+
+python3 UDPClient.py localhost asdf km mi
+asdf is not a valid float!
+
+python3 UDPClient.py localhost 100 km mi #when server is down
+Connection refused, retry 1
+Connection refused, retry 2
+Connection refused, retry 3
+No response from server, exiting
+
+python3 UDPClient.py localhost 100 km kg
+From Server:kg is not a valid unit paired with km.
